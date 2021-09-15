@@ -1,9 +1,5 @@
 #include <iostream>
 #include <fstream>
-
-<<<<<<< HEAD
-
-=======
 void printOutAnswers()
 {
     ifstream fin("answers.txt");
@@ -15,12 +11,9 @@ void printOutAnswers()
     }
     fin.close();
 }
->>>>>>> feature/results
 
 void checkQuestions()
 {
-    <<<<<<< HEAD
-            =======
                     ifstream fin("questions.txt");
     ofstream fout("answers.txt");
     string s;
@@ -42,5 +35,4 @@ signed main()
     cin >> s;
     if(s == "OPROS") checkQuestions();
     else printOutAnswers();
-    >>>>>>> feature/results
 }
