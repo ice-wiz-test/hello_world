@@ -10,6 +10,20 @@ void printOutAnswers()
         fin >> s;
         cout << s << endl;
     }
+    fin.close();
+}
+
+void printOutBeautyAnswers()
+{
+    ifstream fin("answers.txt");
+    string s;
+    for(int i = 0; i < 3; ++i)
+    {
+        fin >> s;
+        cout << s << endl;
+    }
+    cout << "ALL GOOD" << endl;
+    fin.close();
 }
 
 signed main()
@@ -25,6 +39,6 @@ signed main()
         cin >> answer;
         fout << answer << endl;
     }
-    fin.close;
-    fout.close;
+    fin.close();
+    fout.close();
 }
