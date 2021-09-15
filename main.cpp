@@ -13,19 +13,6 @@ void printOutAnswers()
     fin.close();
 }
 
-void printOutBeautyAnswers()
-{
-    ifstream fin("answers.txt");
-    string s;
-    for(int i = 0; i < 3; ++i)
-    {
-        fin >> s;
-        cout << s << endl;
-    }
-    cout << "ALL GOOD" << endl;
-    fin.close();
-}
-
 signed main()
 {
     ifstream fin("questions.txt");
