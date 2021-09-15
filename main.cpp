@@ -1,6 +1,5 @@
 #include <iostream>
 #include <fstream>
-
 void printOutAnswers()
 {
     ifstream fin("answers.txt");
@@ -12,10 +11,11 @@ void printOutAnswers()
     }
     fin.close();
 }
+>>>>>>> feature/results
 
 void checkQuestions()
 {
-    ifstream fin("questions.txt");
+                    ifstream fin("questions.txt");
     ofstream fout("answers.txt");
     string s;
     string answer;
