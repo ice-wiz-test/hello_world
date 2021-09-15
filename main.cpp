@@ -11,6 +11,7 @@ void printOutAnswers()
     }
     fin.close();
 }
+>>>>>>> feature/results
 
 void checkQuestions()
 {
