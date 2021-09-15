@@ -10,9 +10,10 @@ void printOutAnswers()
         fin >> s;
         cout << s << endl;
     }
+    fin.close();
 }
 
-signed main()
+void checkQuestions()
 {
     ifstream fin("questions.txt");
     ofstream fout("answers.txt");
@@ -25,6 +26,14 @@ signed main()
         cin >> answer;
         fout << answer << endl;
     }
-    fin.close;
-    fout.close;
+    fin.close();
+    fout.close();
+}
+
+signed main()
+{
+    string s;
+    cin >> s;
+    if(s == "OPROS") checkQuestions();
+    else printOutAnswers();
 }
