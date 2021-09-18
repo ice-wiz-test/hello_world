@@ -1,21 +1,31 @@
 #include <iostream>
 #include <fstream>
+
+void putOut(string x)
+{
+    cout << x << endl;
+}
+
 void printOutAnswers()
 {
     ifstream fin("answers.txt");
     string s;
-    for(int i = 0; i < 3; ++i)
+    vector<string> names;
+    while(fin >> s)
     {
-        fin >> s;
-        cout << s << endl;
+        names.push_back(s);
+    }
+    sort(names.begin(), names.end());
+    for(auto x : names)
+    {
+        putOut(x);
     }
     fin.close();
 }
->>>>>>> feature/results
 
 void checkQuestions()
 {
-                    ifstream fin("questions.txt");
+    ifstream fin("questions.txt");
     ofstream fout("answers.txt");
     string s;
     string answer;
@@ -24,8 +34,9 @@ void checkQuestions()
         fin >> s;
         cout << s << endl;
         cin >> answer;
-        fout << answer << endl;
+        fout << answer << " ";
     }
+    fout << endl;
     fin.close();
     fout.close();
 }
