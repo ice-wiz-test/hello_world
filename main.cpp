@@ -1,16 +1,23 @@
 #include <iostream>
 #include <fstream>
-
+map<string, int> books;
+int total = 0;
 void putOut(string x)
 {
     cout << x << endl;
+    int pos = x.rfind(" ");
+    string temp = x.substr(pos + 1, x.size() - pos - 1);
+    total = total + 1 -  min(books[temp], 1);
+    books[temp]++;
 }
 
 void printOutAnswers()
 {
+    total = 0;
     ifstream fin("answers.txt");
     string s;
     vector<string> names;
+    names.clear();
     while(fin >> s)
     {
         names.push_back(s);
@@ -20,6 +27,9 @@ void printOutAnswers()
     {
         putOut(x);
     }
+
+    cout << "Amount of people who passed the survey - " << names.size() << endl;
+    cout << "Amount of books present - " << total;
     fin.close();
 }
 
