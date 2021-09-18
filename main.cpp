@@ -5,52 +5,52 @@
 void putOut(string x)
 {
     cout << x << endl;
-=======
-map<string, int> books;
-int total = 0;
-void putOut(string x)
-{
-    cout << x << endl;
-    int pos = x.rfind(" ");
-    string temp = x.substr(pos + 1, x.size() - pos - 1);
-    total = total + 1 -  min(books[temp], 1);
-    books[temp]++;
-}
+    =======
+    map<string, int> books;
+    int total = 0;
+    void putOut(string x)
+    {
+        cout << x << endl;
+        int pos = x.rfind(" ");
+        string temp = x.substr(pos + 1, x.size() - pos - 1);
+        total = total + 1 -  min(books[temp], 1);
+        books[temp]++;
+    }
 
-void printOutAnswers(int numberOfField) {
-    total = 0;
-    ifstream fin("answers.txt");
-    string s;
-    vector <string> names;
-    names.clear();
-    if (numberOfField == 1) {
-        while (fin >> s) {
+    void printOutAnswers(int numberOfField) {
+        total = 0;
+        ifstream fin("answers.txt");
+        string s;
+        vector <string> names;
+        names.clear();
+        if (numberOfField == 1) {
+            while (fin >> s) {
+                {
+                    names.push_back(s);
+                }
+                sort(names.begin(), names.end());
+            }
+        }
+
+        if (numberOfField == 2) {
+            while(fin >> s)
             {
+                int pos = s.find(" ");
+                string temp = s.substr(pos, s.rfind(" "));
                 names.push_back(s);
             }
             sort(names.begin(), names.end());
         }
-    }
 
-    if (numberOfField == 2) {
-        while(fin >> s)
-        {
-            int pos = s.find(" ");
-            string temp = s.substr(pos, s.rfind(" "));
-            names.push_back(s);
+        if (numberOfField == 3) {
+            while(fin >> s)
+            {
+                int pos = s.rfind(" ");
+                string temp = s.substr(pos, s.size() - pos);
+                names.push_back(s);
+            }
+            sort(names.begin(), names.end());
         }
-        sort(names.begin(), names.end());
-    }
-
-    if (numberOfField == 3) {
-        while(fin >> s)
-        {
-            int pos = s.rfind(" ");
-            string temp = s.substr(pos, s.size() - pos);
-            names.push_back(s);
-        }
-        sort(names.begin(), names.end());
-    }
 
 
     }
