@@ -1,24 +1,25 @@
 #include <iostream>
 #include <fstream>
-<<<<<<< HEAD
+#include <string>
+#include <map>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
 
 void putOut(string x)
 {
     cout << x << endl;
-    =======
     map<string, int> books;
     int total = 0;
-    void putOut(string x)
-    {
-        cout << x << endl;
-        int pos = x.rfind(" ");
-        string temp = x.substr(pos + 1, x.size() - pos - 1);
-        total = total + 1 -  min(books[temp], 1);
-        books[temp]++;
-    }
+    int pos = x.rfind(" ");
+    string temp = x.substr(pos + 1, x.size() - pos - 1);
+    total = total + 1 -  min(books[temp], 1);
+    books[temp]++;
+}
 
     void printOutAnswers(int numberOfField) {
-        total = 0;
+        int total = 0;
         ifstream fin("answers.txt");
         string s;
         vector <string> names;
@@ -53,7 +54,6 @@ void putOut(string x)
         }
 
 
-    }
     for(auto x : names)
     {
         putOut(x);
@@ -87,5 +87,5 @@ signed main()
     string s;
     cin >> s;
     if(s == "OPROS") checkQuestions();
-    else printOutAnswers();
+    else printOutAnswers(1);
 }
