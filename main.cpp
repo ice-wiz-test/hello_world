@@ -104,7 +104,7 @@ void checkQuestions()
     {
         cout << s << endl;
         cin >> answer;
-        fout << answer << endl;
+        fout << answer << " ";
     }
     fout << endl;
     fin.close();
