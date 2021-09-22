@@ -4,8 +4,24 @@
 #include <map>
 #include <vector>
 #include <algorithm>
+#include <fstream>
+#include <iostream>
 
 using namespace std;
+
+void editQuesions(){
+    ofstream q("questions.txt");
+    string line;
+    q.clear();
+    while(getline(cin, line)){
+        if(line != "")
+            q << line << endl;
+    }
+    ofstream ans("answers.txt");
+    ans.clear();
+    q.close();
+    ans.close();
+}
 
 void putOut(string x)
 {
@@ -25,11 +41,11 @@ void putOut(string x)
         vector <string> names;
         names.clear();
         if (numberOfField == 1) {
-            while (fin >> s) {
+            while (getline(fin, s)) {
                 {
                     names.push_back(s);
                 }
-                sort(names.begin(), names.end());
+                //sort(names.begin(), names.end());
             }
         }
 
@@ -70,12 +86,11 @@ void checkQuestions()
     ofstream fout("answers.txt");
     string s;
     string answer;
-    for(int i = 0; i < 3; ++i)
+    while(getline(fin, s))
     {
-        fin >> s;
         cout << s << endl;
         cin >> answer;
-        fout << answer << " ";
+        fout << answer << endl;
     }
     fout << endl;
     fin.close();
@@ -87,5 +102,9 @@ signed main()
     string s;
     cin >> s;
     if(s == "OPROS") checkQuestions();
+    else if(s == "EDIT"){
+        cout << "Enter questions line by line. If u want to stop just press Ctrl + Z." << endl;
+        editQuesions();
+    }
     else printOutAnswers(1);
 }
