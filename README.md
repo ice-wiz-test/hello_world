@@ -45,7 +45,7 @@ void checkQuestions()
 
 // Fixed a function that was responsible for checking the amount of books present in our answers
 
-``cpp 
+```cpp 
 int total = 0;
 map<string, int> books;
 void putOut(string x)
