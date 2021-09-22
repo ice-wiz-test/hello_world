@@ -4,8 +4,27 @@
 #include <map>
 #include <vector>
 #include <algorithm>
+<<<<<<< HEAD
+=======
+#include <fstream>
+#include <iostream>
 
 using namespace std;
+
+void editQuesions(){
+    ofstream q("questions.txt");
+    string line;
+    q.clear();
+    while(getline(cin, line)){
+        if(line != "")
+            q << line << endl;
+    }
+    ofstream ans("answers.txt");
+    ans.clear();
+    q.close();
+    ans.close();
+}
+
 int total = 0;
 map<string, int> books;
 void putOut(string x)
@@ -26,6 +45,7 @@ void putOut(string x)
     cout << total << endl;
     books[temp]++;
 }
+
 
 void printOutAnswers(int numberOfField) {
     ifstream fin("answers.txt");
@@ -62,7 +82,8 @@ void printOutAnswers(int numberOfField) {
     }
 
     books.clear();
-    for (auto x : names)
+
+    for(auto x : names)
     {
         putOut(x);
     }
@@ -79,11 +100,11 @@ void checkQuestions()
     ofstream fout("answers.txt", std::ios_base::app);
     string s;
     string answer;
-    while (getline(fin, s))
+    while(getline(fin, s))
     {
         cout << s << endl;
         cin >> answer;
-        fout << answer << " ";
+        fout << answer << endl;
     }
     fout << endl;
     fin.close();
@@ -98,4 +119,8 @@ signed main()
     cin >> s;
     if (s == "SURVEY") checkQuestions();
     if (s == "RESULTS") printOutAnswers(1);
+    if(s == "EDIT"){
+        cout << "Enter questions line by line. If u want to stop just press Ctrl + Z." << endl;
+        editQuesions();
+    }
 }
